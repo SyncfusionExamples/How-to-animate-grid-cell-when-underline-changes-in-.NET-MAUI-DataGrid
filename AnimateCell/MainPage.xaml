@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
-             xmlns:local="clr-namespace:AnimateCell"
+             xmlns:local="clr-namespace:AnimateCell.ViewModel"
+             xmlns:animation="clr-namespace:AnimateCell.Behaviour"
              x:Class="AnimateCell.MainPage">
 
     <ContentPage.BindingContext>
@@ -16,12 +17,12 @@
             <syncfusion:SfDataGrid.Columns>
                 <syncfusion:DataGridTextColumn HeaderText="Symbol" MappingName="Symbol" Width="120" CellTextAlignment="Center" HeaderTextAlignment="Center"/>
                 <syncfusion:DataGridTextColumn HeaderText="Account" MappingName="Account" Width="180" CellTextAlignment="Center" HeaderTextAlignment="Center"/>
-                <syncfusion:DataGridNumericColumn  HeaderText="Last Trade" MappingName="LastTrade" Width="140">
+                <syncfusion:DataGridNumericColumn  HeaderText="Last Trade" MappingName="LastTrade" Width="140"  HeaderTextAlignment="Center">
                     <syncfusion:DataGridNumericColumn.CellTemplate>
                         <DataTemplate>
                             <Grid BackgroundColor="Transparent">
                                 <Grid.Behaviors>
-                                    <local:AnimateBehavior WatchedProperty="LastTrade" />
+                                    <animation:AnimateBehavior WatchedProperty="LastTrade" />
                                 </Grid.Behaviors>
                                 <Label Text="{Binding LastTrade, StringFormat='{}{0:F2}'}" VerticalOptions="Center" HorizontalOptions="Center"/>
                             </Grid>
@@ -29,12 +30,12 @@
                     </syncfusion:DataGridNumericColumn.CellTemplate>
                 </syncfusion:DataGridNumericColumn>
 
-                <syncfusion:DataGridNumericColumn  HeaderText="Change" MappingName="Change" Width="120">
+                <syncfusion:DataGridNumericColumn  HeaderText="Change" MappingName="Change" Width="120" HeaderTextAlignment="Center">
                     <syncfusion:DataGridNumericColumn.CellTemplate>
                         <DataTemplate>
                             <Grid BackgroundColor="Transparent">
                                 <Grid.Behaviors>
-                                    <local:AnimateBehavior WatchedProperty="Change" />
+                                    <animation:AnimateBehavior WatchedProperty="Change" />
                                 </Grid.Behaviors>
                                 <Label Text="{Binding Change, StringFormat='{}{0:+0.##;-0.##;0}'}" VerticalOptions="Center" HorizontalOptions="Center"/>
                             </Grid>
@@ -42,12 +43,12 @@
                     </syncfusion:DataGridNumericColumn.CellTemplate>
                 </syncfusion:DataGridNumericColumn>
 
-                <syncfusion:DataGridNumericColumn  HeaderText="Open" MappingName="Open" Width="120">
+                <syncfusion:DataGridNumericColumn  HeaderText="Open" MappingName="Open" Width="120" HeaderTextAlignment="Center">
                     <syncfusion:DataGridNumericColumn.CellTemplate>
                         <DataTemplate>
                             <Grid BackgroundColor="Transparent">
                                 <Grid.Behaviors>
-                                    <local:AnimateBehavior WatchedProperty="Open" />
+                                    <animation:AnimateBehavior WatchedProperty="Open" />
                                 </Grid.Behaviors>
                                 <Label Text="{Binding Open, StringFormat='{}{0:F2}'}" VerticalOptions="Center" HorizontalOptions="Center"/>
                             </Grid>
@@ -55,12 +56,12 @@
                     </syncfusion:DataGridNumericColumn.CellTemplate>
                 </syncfusion:DataGridNumericColumn>
 
-                <syncfusion:DataGridNumericColumn  HeaderText="Prev Close" MappingName="PreviousClose" Width="120">
+                <syncfusion:DataGridNumericColumn  HeaderText="Prev Close" MappingName="PreviousClose" Width="120" HeaderTextAlignment="Center">
                     <syncfusion:DataGridNumericColumn.CellTemplate>
                         <DataTemplate>
                             <Grid BackgroundColor="Transparent">
                                 <Grid.Behaviors>
-                                    <local:AnimateBehavior WatchedProperty="PreviousClose" />
+                                    <animation:AnimateBehavior WatchedProperty="PreviousClose" />
                                 </Grid.Behaviors>
                                 <Label Text="{Binding PreviousClose, StringFormat='{}{0:F2}'}" VerticalOptions="Center" HorizontalOptions="Center"/>
                             </Grid>
